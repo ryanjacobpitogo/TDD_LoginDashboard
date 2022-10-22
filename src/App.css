@@ -1,0 +1,73 @@
+body {
+  background-image: url("C:\Users\User\my-react-app\public\images\1623813795681.jfif");
+  background-color: #222831;
+  font-size: 15px;
+}
+
+.login-image {
+  width: 250px;
+  margin-right: 40px;
+}
+
+.login-image-container {
+  float: left;
+}
+
+.login-design {
+  width: 500px;
+  height: 300px;
+  padding: 40px;
+  background-color: #eef4ff;
+  margin: 120px auto 0 auto;
+  border-radius: 0.3em;
+  box-shadow: 2px 2px 2px 4px rgba(42, 42, 42, 0.216);
+}
+
+.login-title {
+  line-height: 30px;
+}
+
+.login-button {
+  margin-top: 20px;
+  padding: 8px;
+  width: 206px;
+  border-radius: 0.5em;
+  border: 2px solid #222831;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  cursor: pointer;
+  background-color: #222831;
+  color: white;
+  transition: 0.3s;
+}
+
+.login-user-input {
+  width: 40%;
+  border-radius: 0.5em;
+  background-color: transparent;
+  border: 1px solid #222831;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.navigation {
+  width: fit-content;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: aliceblue;
+  margin-bottom: 30px;
+}
+
+.table-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  background-color: #eef4ff;
+  padding: 20px;
+  border-radius: 0.3em;
+  box-shadow: 5px 2px 5px 5px rgba(0, 0, 0, 0.289);
+}
