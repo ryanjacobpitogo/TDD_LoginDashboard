@@ -1,7 +1,14 @@
 body {
-  background-image: url("C:\Users\User\my-react-app\public\images\1623813795681.jfif");
-  background-color: #222831;
+  background-image: url("../public/images/1623813795681.jfif");
   font-size: 15px;
+}
+
+.login-subtitle {
+  color: #222831;
+}
+
+.login-input {
+  color: #222831;
 }
 
 .login-image {
@@ -14,11 +21,16 @@ body {
 }
 
 .login-design {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
   width: 500px;
   height: 300px;
   padding: 40px;
   background-color: #eef4ff;
-  margin: 120px auto 0 auto;
   border-radius: 0.3em;
   box-shadow: 2px 2px 2px 4px rgba(42, 42, 42, 0.216);
 }
@@ -58,16 +70,117 @@ body {
   display: flex;
   width: 100%;
   justify-content: center;
-  background-color: aliceblue;
+  background-color: #223852;
   margin-bottom: 30px;
+  box-shadow: 2px 2px 2px 2px rgba(42, 42, 42, 0.216);
+  color: white;
 }
 
 .table-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 800px;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
   background-color: #eef4ff;
-  padding: 20px;
+  padding: 20px 50px 30px 50px;
   border-radius: 0.3em;
   box-shadow: 5px 2px 5px 5px rgba(0, 0, 0, 0.289);
+}
+
+.table-title {
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  padding-right: 50%;
+  padding-left: 80px;
+}
+
+.logout-button {
+  top:0;
+  bottom:0;
+  right:0;
+  margin: auto;
+  height: fit-content;
+  width: 206px;   
+  padding: 8px 0 8px 0;
+  border-radius: 0.5em;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.logout-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #222831;
+  transition: 0.3s;
+}
+
+.username {
+  font-size: large;
+}
+
+.user-info-table {
+  white-space: pre-line;
+}
+.user-image {
+  width: 120px;
+}
+
+.user-container-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 30px 0;
+}
+
+.user-container-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 30px 0;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.user-info-container {
+  padding: 20px 10px 10px 10px;
+}
+
+.back-button {
+  margin-top: 50px;
+  height: fit-content;
+  width: 100%;   
+  padding: 10px;
+  border-radius: 0.5em;
+  background-color: #222831;
+  color: white;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #222831;
+  color: #222831;
+  transition: 0.3s;
+}
+
+.view-details-button {
+  height: fit-content;
+  width: 100%;   
+  padding: 3px 10px;
+  margin: 1px 5px;
+  border-radius: 0.8em;
+  border: 2px solid #222831;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.view-details-button:hover {
+  cursor: pointer;
+  background-color: #222831;
+  color: white;
+  transition: 0.3s;
 }

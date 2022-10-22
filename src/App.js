@@ -87,7 +87,7 @@ const Login = () => {
 			<td>{rec.email}</td>
 			<td>{rec.phone}</td>
 			<td>
-				<button onClick = {() => {
+				<button class="view-details-button" onClick = {() => {
 					setCurrID(rec.id-1);
 					setViewDetail(true);
 					}
@@ -103,6 +103,7 @@ const Login = () => {
 		if(!viewDetail){
 			return(
 			<div>
+				<h1 class="table-title">Users Dashboard</h1>
 				<table>
 					<tr>
 					{listHeaders}
@@ -115,12 +116,36 @@ const Login = () => {
 		}
 		else{
 			return(
-				<div>
-					<div>{records[currID].id}</div>
-					<div>{records[currID].name}</div>
-					<div>{`${records[currID].address.street} ${records[currID].address.suite} ${records[currID].address.city} ${records[currID].address.zipcode}`}</div>
-					<div>{records[currID].company.name}</div>
-					<button onClick = {() => setViewDetail(false)}>Back to table</button>
+				<div class="user-info-container">
+					<div class="user-container-name">
+						{records[currID].name}
+					</div>
+					<div class="user-container-image">
+						<div>
+							<img class="user-image" src=".\images\tdduser.png" alt="user img"/>
+						</div>
+
+					</div>
+					<table class="user-info-table">
+						<tr>
+							<td>User ID:</td>
+							<td>{records[currID].id}</td>
+						</tr>
+						<tr>
+							<td>User Name:</td>
+							<td>{records[currID].name}</td>
+						</tr>
+						<tr>
+							<td>User Address:</td>
+							<td>{`${records[currID].address.street} ${records[currID].address.suite}
+							${records[currID].address.city} ${records[currID].address.zipcode}`}</td>
+						</tr>
+						<tr>
+							<td>User Company:</td>
+							<td>{records[currID].company.name}</td>
+						</tr>
+					</table>
+					<button class="back-button" onClick = {() => setViewDetail(false)}>Back to table</button>
 				</div>
 			);
 		}
@@ -133,7 +158,7 @@ const Login = () => {
 				<div class="login-image-container">
 					<img class="login-image" src=".\images\vector tdd.png" alt="vector img"/>
 				</div>
-				<div class="login-container">
+				<div>
 					<h1 class="login-title">
 					WELCOME <br/> TO TDD!
 					</h1>
@@ -175,19 +200,18 @@ const Login = () => {
 			records ? (
 				<>
 					<div class="navigation">
-						<div>
+						<div class="welcome-text">
 							<p>
-								Welcome, {user.email}.
+								Welcome, user <b class="username">{user.email}</b>.
 								<br/>
-								Token: {result}
+								Token: <b>{result}</b>
 							</p>
 						</div>
-						<button onClick = {handleLogOut}>
+						<button class="logout-button" onClick = {handleLogOut}>
 							Logout
 						</button>
 					</div>
 					<div class="table-container">
-					<h1>Table</h1>
 					<ViewDeets />
 					</div>
 				</>
