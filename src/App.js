@@ -118,7 +118,7 @@ const Login = () => {
 			return(
 				<div class="user-info-container">
 					<div class="user-container-name">
-						{records[currID].name}
+						{records[currID].username}
 					</div>
 					<div class="user-container-image">
 						<div>
