@@ -28,7 +28,7 @@ describe("this is a user dashboard app", ()=> {
     })
 });
 
-test('submits username and password', async () => {
+describe('submits username and password', async () => {
 
     // ARRANGE
     const username = "eve.holt@reqres.in";
@@ -54,8 +54,55 @@ test('submits username and password', async () => {
 
   });
   
+describe("Check the submit validity.", () => {
+  afterEach(cleanup);
 
+  it("Check the email data input", () => {
+    render(<App/>);
 
+    const email = screen.getByTestId("email");
+    fireEvent.change(email, {
+      target: { value: "eve.holt@reqres.in"}
+    });
+    expect(email.value).toBe("eve.holt@reqres.in");
+  });
+
+  it("Check the password data input", () => {
+    render(<App/>);
+
+    const email = screen.getByTestId("password");
+    fireEvent.change(password, {
+      target: { value: "cityslicka"}
+    });
+    expect(password.value).toBe("cityslicka");
+
+  it("Check if valid user with token", async () => {   
+      render(<Project />);
+      await waitFor(() => {
+          expect(screen.findByText('QpwL5tke4Pnpja7X4')).toBeTruthy() 
+      })
+    });
+  })
+});
+  
+describe("Checking wrong input by user",()=>{
+
+	afterEach(cleanup);
+
+	it("should check if input username fails", () => {		
+		render(<App />);
+		const email = screen.getByTestId("email");
+		fireEvent.change(email, { target: { value: "earl" }});
+		expect(email.value).not.toBe(true);
+	});
+
+	it("should check if input password fails", () => {		
+		render(<App />);
+		const password = screen.getByTestId("password");
+		fireEvent.change(password, { target: { value: "123" }});
+		expect(password.value).not.toBe(true);
+	});
+});
 
 
 
