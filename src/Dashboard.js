@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Details from "./Details";
 
 const Dashboard = ({
-  records,
-  totalUsers,
   user,
   setDashPage,
   currID, setCurrID,
@@ -14,16 +12,32 @@ const Dashboard = ({
   //All local states used and passed
   const headings = ["ID", "Name", "Username", "Email", "Phone", "Action"];
   const [viewDetail, setViewDetail] = useState(false);
+  const [records, setRecords] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
+
+  //Data fetching from API
+	const fetchData = async () => {
+		const response = await fetch(
+			"https://jsonplaceholder.typicode.com/users"
+	  	).then((response) => response.json());
+		//
+	  	setRecords(response);
+	  	setTotalUsers(response.length);
+	};
+
+	useEffect(()=>{
+		fetchData();	
+	},[]);
 
   //Map all table entries from people
   const listDetails = records.map((rec) => (
-    <tr>
-      <td>{rec.id}</td>
-      <td>{rec.name}</td>
-      <td>{rec.username}</td>
-      <td>{rec.email}</td>
-      <td>{rec.phone}</td>
-      <td>
+    <tr role = 'list' data-testid = 'dash_list'>
+      <td role = 'listitem' data-testid='dash_name'>{rec.id}</td>
+      <td role = 'listitem'>{rec.name}</td>
+      <td role = 'listitem'>{rec.username}</td>
+      <td role = 'listitem'>{rec.email}</td>
+      <td role = 'listitem'>{rec.phone}</td>
+      <td role = 'listitem'>
         <button
           className="view-details-button"
           onClick={() => {
@@ -51,7 +65,7 @@ const Dashboard = ({
     <>
       <div className="navigation">
         <div className="welcome-text">
-          <p>
+          <p data-testid="account">
             Welcome, user <b className="username">{user.email}</b>.
             <br />
             Token: <b>{result}</b>
@@ -66,7 +80,7 @@ const Dashboard = ({
         </button>
       </div>
       <div>
-        <div className="table-container">
+        <div className="table-container" data-testid="user-dashboard">
         {/* If view details flag is false, display table. Otherwise, change state and display a specific index's view data*/}
         { !viewDetail ? 
             <div>
