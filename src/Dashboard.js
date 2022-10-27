@@ -41,6 +41,7 @@ const Dashboard = ({
       <td role = 'listitem'>
         <button
           className="view-details-button"
+          role='button'
           onClick={() => {
             setCurrID(rec.id - 1);
             setViewDetail(!viewDetail);
@@ -69,7 +70,7 @@ const Dashboard = ({
           <p data-testid="account">
             Welcome, user <b className="username">{records.email}</b>.
             <br />
-            Token: <b data-testid= "Token">{result}</b>
+            Token: <span data-testid= "Token">{result}</span>
           </p>
         </div>
         <button 

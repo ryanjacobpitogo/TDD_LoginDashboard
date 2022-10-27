@@ -12,7 +12,6 @@ describe("this is a dashboard screen", () => {
         <LoginCall/>
          render(<Dashboard/>);
 
-        
         const account = screen.getByTestId("Token");
         expect(account).toBeInTheDocument();
         await waitFor(()=>{
