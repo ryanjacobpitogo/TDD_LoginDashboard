@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 import { useState, useEffect } from "react";
 import "./App.css";
 import Details from "./Details";
@@ -66,9 +67,9 @@ const Dashboard = ({
       <div className="navigation">
         <div className="welcome-text">
           <p data-testid="account">
-            Welcome, user <b className="username">{user.email}</b>.
+            Welcome, user <b className="username">{records.email}</b>.
             <br />
-            Token: <b>{result}</b>
+            Token: <b data-testid= "Token">{result}</b>
           </p>
         </div>
         <button 
@@ -89,7 +90,7 @@ const Dashboard = ({
                 <tr>{listHeaders}</tr>
                 {listDetails}
                 </table>
-                <h2 data-testid="total-users">Total Users: {totalUsers}</h2>
+                <h2 data-testid='total-users' aria-label="total-users">Total Users: {totalUsers}</h2>
             </div>
           :
           <Details records={records} currID={currID} viewDetail={viewDetail} setViewDetail={setViewDetail} setCurrID={setCurrID} />
