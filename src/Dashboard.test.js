@@ -15,7 +15,9 @@ describe("this is a dashboard screen", () => {
         
         const account = screen.getByTestId("Token");
         expect(account).toBeInTheDocument();
-        expect(account).toBe("QpwL5tke4Pnpja7X4");
+        await waitFor(()=>{
+            expect(screen.findByText("QpwL5tke4Pnpja7X4")).toBeTruthy();
+        })
     });
 
     it("has a button for logout", () => {
@@ -46,12 +48,8 @@ describe("this checks the details of the dashboard", ()=>{
         render(<Dashboard/>);
           await waitFor(async () => 
              expect(await screen.findByText('Leanne Graham')).toBeInTheDocument());
-         expect(screen.getByRole('table')).toHaveTextContent('Leanne Graham');
-
-    
+         expect(screen.getByRole('table')).toHaveTextContent('Leanne Graham');   
     });
-
-
 
 });
 
