@@ -62,7 +62,7 @@ const Dashboard = ({
   
   //Conditional rendering in checking records, if records are available, render display
   return records ? (
-    <>
+    <div>
       <div className="navigation">
         <div className="welcome-text">
           <p data-testid="account">
@@ -96,7 +96,7 @@ const Dashboard = ({
         }
         </div>
       </div>
-    </>
+    </div>
   ) : 
   //if records are loading, print fetching prompt
   (
